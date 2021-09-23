@@ -66,7 +66,7 @@ export default function Index() {
         if (dsproduto === (''))
             return toast.error('❌ Descrição inválida');
 
-            if (idAlterando == 0 ) {
+            if (idAlterando === 0 ) {
                 let r = await api.inserir(nome, categoria, precoDE, precoPOR, avaliacao, dsproduto, estoque, imgproduto);
                 
                 if (r.erro)
@@ -154,7 +154,7 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student"> {idAlterando == 0 ? "Novo Produto" : "Alterando Produto " + idAlterando}</div>
+                            <div class="text-new-student"> {idAlterando === 0 ? "Novo Produto" : "Alterando Produto " + idAlterando}</div>
                         </div>
 
                         <div class="input-new-student"> 
@@ -201,7 +201,7 @@ export default function Index() {
                             </div>
                         </div>
                     </div>
-                    <div class="button-create"> <button onClick={inserir}> {idAlterando == 0 ? "Cadastrar" : "Alterar"} </button> </div>
+                    <div class="button-create"> <button onClick={inserir}> {idAlterando === 0 ? "Cadastrar" : "Alterar"} </button> </div>
                     </div>
                 </div>
 
@@ -229,7 +229,7 @@ export default function Index() {
 
                             {produtos.map((item, i) =>
 
-                                <tr className={i % 2 == 0 ? "linha-alternada" : ""}>
+                                <tr className={i % 2 === 0 ? "linha-alternada" : ""}>
                                     <td> <img src={item.img_produto} alt='' width='50px' height='50px'></img> </td>
                                     <td> {item.id_produto} </td>
                                     <td title={item.nm_produto}> {item.nm_produto != null && item.nm_produto.length >= 25 
